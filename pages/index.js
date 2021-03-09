@@ -1,9 +1,10 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
-  const sentryUrl = "http://35.188.112.188:9000"
+const sentryUrl = "http://start.sentry-demo.com:9000"
+// const sentryUrl = "http://dev.getsentry.net:8000";
 
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,11 +13,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Sentry Demo Helloooooo
-        </h1>
+        <h1 className={styles.title}>Sentry Demo Helloooooo</h1>
 
-        <form action={`${sentryUrl}/demo/start/`}>
+        <form action={`${sentryUrl}/demo/start/`} method="post">
+          <input name="accepted_tracking" type="hidden" value="1" />
           <button>Start Demo</button>
         </form>
       </main>
