@@ -1,8 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-const sentryUrl = "http://start.sentry-demo.com:9000"
-// const sentryUrl = "http://dev.getsentry.net:8000";
+const sentryUrl =
+  process.env.NEXT_PUBLIC_SENTRY_URL || "https://try.sentry-demo.com";
 
 export default function Home() {
   return (
