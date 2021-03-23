@@ -13,11 +13,24 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Sentry Demo Helloooooo</h1>
+        <h1 className={styles.title}>Sentry Show & Tell</h1>
 
         <form action={`${sentryUrl}/demo/start/`} method="post">
-          <input name="accepted_tracking" type="hidden" value="1" />
-          <button>Start Demo</button>
+          {/* <input name="accepted_tracking" type="hidden" value="0" /> */}
+          <button
+            style={{
+              "text-transform": "uppercase",
+              background: "#e1557c",
+              color: "#ffffff",
+              border: "none",
+              "border-radius": "20px",
+              "margin-top": "20px",
+              padding: "4px"
+            }}
+            className="start-demo"
+          >
+            Start Demo
+          </button>
         </form>
       </main>
 
