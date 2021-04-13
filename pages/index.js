@@ -1,10 +1,13 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 
 const sentryUrl =
   process.env.NEXT_PUBLIC_SENTRY_URL || "https://try.sentry-demo.com";
 
 export default function Home() {
+  const router = useRouter()
+  const { skip_buffer } = router.query;
   return (
     <div className={styles.container}>
       <Head>
@@ -17,6 +20,8 @@ export default function Home() {
 
         <form action={`${sentryUrl}/demo/start/`} method="post">
           {/* <input name="accepted_tracking" type="hidden" value="0" /> */}
+          <input name="scenario" type="hidden" />
+          <input name="skip_buffer" type="hidden" value={skip_buffer} />
           <button
             style={{
               "text-transform": "uppercase",
@@ -25,7 +30,7 @@ export default function Home() {
               border: "none",
               "border-radius": "20px",
               "margin-top": "20px",
-              padding: "4px"
+              padding: "4px",
             }}
             className="start-demo"
           >
