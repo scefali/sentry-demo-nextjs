@@ -6,8 +6,8 @@ const sentryUrl =
   process.env.NEXT_PUBLIC_SENTRY_URL || "https://try.sentry-demo.com";
 
 export default function Home() {
-  const router = useRouter()
-  const { skip_buffer } = router.query;
+  const router = useRouter();
+  const { skipBuffer } = router.query;
   return (
     <div className={styles.container}>
       <Head>
@@ -19,9 +19,11 @@ export default function Home() {
         <h1 className={styles.title}>Sentry Show & Tell</h1>
 
         <form action={`${sentryUrl}/demo/start/`} method="post">
-          {/* <input name="accepted_tracking" type="hidden" value="0" /> */}
-          <input name="scenario" type="hidden" />
-          <input name="skip_buffer" type="hidden" value={skip_buffer} />
+          {/* <input name="acceptedTracking" type="hidden" value="0" /> */}
+          {/* <input name="scenario" type="hidden" value="oneStackTrace" /> */}
+          {/* <input name="projectSlug" type="hidden" value="android" /> */}
+          <input name="skipBuffer" type="hidden" value={skipBuffer} />
+
           <button
             style={{
               "text-transform": "uppercase",
