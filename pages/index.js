@@ -7,7 +7,7 @@ const sentryUrl =
 
 export default function Home() {
   const router = useRouter()
-  const { skip_buffer } = router.query;
+  const { skip_buffer, skip_email } = router.query;
   return (
     <div className={styles.container}>
       <Head>
@@ -20,8 +20,11 @@ export default function Home() {
 
         <form action={`${sentryUrl}/demo/start/`} method="post">
           {/* <input name="accepted_tracking" type="hidden" value="0" /> */}
-          <input name="scenario" type="hidden" />
-          <input name="skip_buffer" type="hidden" value={skip_buffer} />
+          <input name="scenario" value="oneTransaction" />
+          {/* <input name="projectSlug" value="python" /> */}
+          <input name="skipBuffer" type="hidden" value={skip_buffer} />
+          <input name="skipEmail" type="hidden" value={skip_email} />
+          <input name="saasOrgSlug" type="hidden" value="steve-test2" />
           <button
             style={{
               "text-transform": "uppercase",
